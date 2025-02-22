@@ -41,10 +41,8 @@ jobs:
     runs-on: "${{ matrix.runner }}"
     env:
       BASE_DISTRO: ${{ matrix.base_distro }}
-      REPO: crops/poky
+      REPO: devanlai/poky
       DEFAULT_DISTRO: ubuntu-18.04
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       GHCR_USERNAME: ${{ github.actor }}
       GHCR_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
