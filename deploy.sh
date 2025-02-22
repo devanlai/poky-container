@@ -16,11 +16,12 @@ fi
 # Don't deploy on pull requests because it could just be junk code that won't
 # get merged
 if ([ "${GITHUB_EVENT_NAME}" = "push" ] || [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ] || [ "${GITHUB_EVENT_NAME}" = "schedule" ]) && [ "${GITHUB_REF}" = "refs/heads/arm64-testing" ]; then
+    ${ENGINE_CMD} tag $REPO:${BASE_DISTRO}-arm64 ghcr.io/$REPO:${BASE_DISTRO}-arm64
     echo $GHCR_PASSWORD | ${ENGINE_CMD} login ghcr.io -u $GHCR_USERNAME --password-stdin
     ${ENGINE_CMD} push ghcr.io/${REPO}:${BASE_DISTRO}-arm64
 
     if [ "${DEFAULT_DISTRO}" = "${BASE_DISTRO}" ]; then
-	${ENGINE_CMD} tag ${REPO}:${BASE_DISTRO} ghcr.io/${REPO}:arm64-latest
+	${ENGINE_CMD} tag ${REPO}:${BASE_DISTRO}-arm64 ghcr.io/${REPO}:arm64-latest
 	${ENGINE_CMD} push ghcr.io/${REPO}:arm64-latest
     fi
 
