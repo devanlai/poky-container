@@ -26,6 +26,6 @@ ${ENGINE_CMD} build --build-arg BASE_DISTRO=${BASE_DISTRO} --pull -t ${REPO}:${B
 if command -v annotate-output; then
     ANNOTATE_OUTPUT=annotate-output
 fi
-$ANNOTATE_OUTPUT bash -c "cd tests; ./runtests.sh ${REPO}:${BASE_DISTRO}"
+$ANNOTATE_OUTPUT bash -c "cd tests; ./runtests.sh ${REPO}:${BASE_DISTRO}-arm64"
 
 rm -f $DOCKERFILE

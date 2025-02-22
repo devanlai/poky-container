@@ -18,7 +18,7 @@
 # a default, when another distro was desired.
 ARG BASE_DISTRO=SPECIFY_ME
 
-FROM ghcr.io/devanlai/yocto:$BASE_DISTRO-base
+FROM ghcr.io/devanlai/yocto:$BASE_DISTRO-base-arm64
 
 USER root
 
