@@ -40,7 +40,7 @@ jobs:
     runs-on: "${{ matrix.runner }}"
     env:
       BASE_DISTRO: ${{ matrix.base_distro }}
-      REPO: devanlai/poky
+      REPO: devanlai/poky-container
       DEFAULT_DISTRO: ubuntu-18.04
       GHCR_USERNAME: ${{ github.actor }}
       GHCR_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
