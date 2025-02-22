@@ -14,7 +14,6 @@ on:
 
 jobs:
   build-test-deploy:
-    runs-on: ubuntu-latest
     permissions:
       packages: write
     strategy:
@@ -35,6 +34,11 @@ jobs:
                       ubuntu-20.04,
                       ubuntu-22.04
         ]
+        runner: [
+          ubuntu-latest,
+          ubuntu-24.04-arm
+        ]
+    runs-on: "${{ matrix.runner }}"
     env:
       BASE_DISTRO: ${{ matrix.base_distro }}
       REPO: crops/poky
